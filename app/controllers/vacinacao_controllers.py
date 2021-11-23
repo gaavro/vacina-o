@@ -1,6 +1,6 @@
 from flask import request, current_app, jsonify
 from app.models.vacinacao import Vacinacao
-from exceptions.exceptions import InvalidCPFError, InvalidKeyError, InvalidTypeError, InvalidUniqueKeyError
+from app.exceptions.exceptions import InvalidCPFError, InvalidKeyError, InvalidTypeError, InvalidUniqueKeyError
 
 def register_card():
    

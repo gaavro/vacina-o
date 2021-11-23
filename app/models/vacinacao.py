@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta
 from app.configs.database import db
-from flask_sqlalchemy import SQLAlchemy
+
 from sqlalchemy.sql.schema import Column
-from sqlalchemy.sql.sqltypes import ( NULLTYPE, String, DateTime)
+from sqlalchemy.sql.sqltypes import ( String)
 from dataclasses import dataclass
 
-from exceptions.exceptions import InvalidCPFError, InvalidKeyError, InvalidTypeError, InvalidUniqueKeyError, MissingOneKey, anotherKeyError
+from app.exceptions.exceptions import InvalidCPFError, InvalidKeyError, InvalidTypeError, InvalidUniqueKeyError
 
 
 a = timedelta(days=90 )
