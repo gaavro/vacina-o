@@ -5,13 +5,15 @@ from exceptions.exceptions import InvalidCPFError, InvalidKeyError, InvalidTypeE
 def register_card():
    
     data = request.get_json()
-    formatted_data = {k: v.upper() for k,v in data.items()}
-    valid_args = ["cpf", "name", "vaccine_name", "health_unit_name"]
+    
     try:
+        Vacinacao.validate(data)
+        formatted_data = {k: v.upper() for k,v in data.items()}
+        valid_args = ["cpf", "name", "vaccine_name", "health_unit_name"]
         for i in list(formatted_data.keys()):
             if i not in valid_args:
                 del formatted_data[i]
-        Vacinacao.validate(formatted_data)
+        
         vacina = Vacinacao(**formatted_data)
         current_app.db.session.add(vacina)
         current_app.db.session.commit()

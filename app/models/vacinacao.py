@@ -38,7 +38,7 @@ class Vacinacao(db.Model):
         for item in required_keys:
             if item not in data.keys():
                 raise InvalidKeyError
-        for item in data:
+        for item in data.values():
             if type(item) is not str:
                 raise InvalidTypeError
             
